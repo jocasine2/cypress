@@ -1,5 +1,5 @@
-describe('template spec', () => {
-  it('passes', () => {
+describe('Funcionalidade de Logout', () => {
+  it('login', () => {
     cy.visit('http://localhost:3000/users/sign_in')
     // Preenche o campo de email
     cy.get('input[name="user[email]"]').type('dev@dev.com');
