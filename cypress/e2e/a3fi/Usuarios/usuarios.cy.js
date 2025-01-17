@@ -1,12 +1,26 @@
 describe('Funcionalidade de Gerenciar Usuários', () => {
-    beforeEach(() => {
-      // Configuração comum para todos os testes, como realizar login
+    const login = (email = 'dev@dev.com', senha = '123456') => {
       cy.visit('http://localhost:3000/users/sign_in');
-      cy.get('input[name="user[email]"]').type('dev@dev.com');
-      cy.get('input[name="user[password]"]').type('123456');
+      cy.get('input[name="user[email]"]').type(email);
+      cy.get('input[name="user[password]"]').type(senha);
       cy.get('#new_user').submit();
-    });
+    };
 
+    const logout = () => {
+      // Abre o dropdown do usuário
+      cy.get('#userDropdown').click();
+    
+      // Clica no botão de logout
+      cy.get('#btn_sair').click();
+      cy.get('#btn_modal_sair').click();
+    
+      // Verifica se a URL inclui '/users/sign_in'
+      cy.url().should('include', '/users/sign_in');
+    
+      // Verifica se o texto "Logout realizado com sucesso" está presente na tela
+      cy.contains('Logout realizado com sucesso').should('be.visible');
+    }; 
+  
     const criarUsuario = (email = null) => {
       cy.visit('http://localhost:3000/users');
       
@@ -66,26 +80,55 @@ describe('Funcionalidade de Gerenciar Usuários', () => {
       // Aguardar o tempo de espera
       cy.wait(tempoEspera);
     };
-    
+
+    // Se o email não for fornecido, gerar um email único
+    const emailParaUsar = `joao.silva${Date.now()}@exemplo.com`; // gerando email único caso não seja passado
+
+    it('Deve registrar um novo usuário pelo form externo', () => {
+      cy.visit('http://localhost:3000/users/sign_in');
+      cy.get('[href="/users/sign_up"]').click()
+      
+      // Preencher os campos de nome e sobrenome
+      cy.get('input[name="natural_person[name]"]').type('João');
+      cy.get('input[name="natural_person[last_name]"]').type('Silva');
+      
+      // Preencher os campos de email, senha e confirmação de senha
+      cy.get('input[name="user[email]"]').type(emailParaUsar);
+      cy.get('input[name="user[password]"]').type('senha123');
+      cy.get('input[name="user[password_confirmation]"]').type('senha123');
+      
+      // Marcar os perfis
+      cy.get('input[name="user_profile[ids][]"][value="1"]').check(); // Administrador
+      
+      // Submeter o formulário
+      cy.get('.actions > .btn').click();
+
+      login(emailParaUsar, 'senha123');
+      cy.contains('Login realizado com sucesso.').should('be.visible');
+    });
+
     it('Deve criar um usuário com sucesso', () => {
+      login();
       criarUsuario();
       cy.contains('Usuário criado com sucesso!').should('be.visible');
     });
     
     it('Deve mostrar mensagem de registro duplicado', () => {
+      login();
       criarUsuario('joao.silva123@exemplo.com');
       criarUsuario('joao.silva123@exemplo.com');
       cy.contains('Email já foi utilizado').should('be.visible');
     });
 
     it('Deve atualizar informações de um usuário', () => {
+      login();
       // cy.viewport(1280, 720);
       cy.visit('http://localhost:3000/users');
       buscarNaLista('joao.silva123@exemplo.com', 3)
 
       // descomente se a lista ficar colapsada e os botões escondidos
       // cy.get(':nth-child(1) > .sorting_1').click()
-      cy.wait(10000); // Espera de 10 segundo (10000 milissegundos)
+    
       cy.get('span[title="Editar"]').click();
 
       editarUsuario();
@@ -95,15 +138,16 @@ describe('Funcionalidade de Gerenciar Usuários', () => {
     });
     
     it('Deve excluir um usuário logicamente', () => {
-      // cy.viewport(1280, 720);
+      login();
+      cy.viewport(1280, 720);
       cy.visit('http://localhost:3000/users');
 
-      buscarNaLista('joao.silva123@exemplo.com', 3)
+      buscarNaLista(emailParaUsar, 3)
     
       // Localiza o botão "Desativar" correspondente ao usuário
       cy.get('span[title="Desativar"]').click();
     
-      buscarNaLista('joao.silva123@exemplo.com', 3)
+      buscarNaLista(emailParaUsar, 3)
     
       // Verifica se a mensagem de confirmação aparece
       cy.contains('Usuário desativado com sucesso!').should('be.visible');
