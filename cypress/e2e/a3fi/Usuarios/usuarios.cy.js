@@ -32,12 +32,12 @@ describe('Funcionalidade de Gerenciar Usuários', () => {
       cy.get('input[name="natural_person[last_name]"]').type('Silva');
       
       // Se o email não for fornecido, gerar um email único
-      const emailParaUsar = email || `joao.silva${Date.now()}@exemplo.com`; // gerando email único caso não seja passado
+      const emailTeste = email || `joao.silva${Date.now()}@exemplo.com`; // gerando email único caso não seja passado
       
       // Preencher os campos de email, senha e confirmação de senha
-      cy.get('input[name="user[email]"]').type(emailParaUsar);
-      cy.get('input[name="user[password]"]').type('senha123');
-      cy.get('input[name="user[password_confirmation]"]').type('senha123');
+      cy.get('input[name="user[email]"]').type(emailTeste);
+      cy.get('input[name="user[password]"]').type(senhaTeste);
+      cy.get('input[name="user[password_confirmation]"]').type(senhaTeste);
       
       // Marcar os perfis
       cy.get('input[name="user_profile[ids][]"][value="1"]').check(); // Administrador
@@ -82,7 +82,9 @@ describe('Funcionalidade de Gerenciar Usuários', () => {
     };
 
     // Se o email não for fornecido, gerar um email único
-    const emailParaUsar = `joao.silva${Date.now()}@exemplo.com`; // gerando email único caso não seja passado
+    // Se o email não for fornecido, gerar um email único
+    const emailTeste = `joao.silva${Date.now()}@exemplo.com`; // gerando email único 
+    const senhaTeste = `senha123`; // gerando senha única 
 
     it('Deve registrar um novo usuário pelo form externo', () => {
       cy.visit('http://localhost:3000/users/sign_in');
@@ -93,9 +95,9 @@ describe('Funcionalidade de Gerenciar Usuários', () => {
       cy.get('input[name="natural_person[last_name]"]').type('Silva');
       
       // Preencher os campos de email, senha e confirmação de senha
-      cy.get('input[name="user[email]"]').type(emailParaUsar);
-      cy.get('input[name="user[password]"]').type('senha123');
-      cy.get('input[name="user[password_confirmation]"]').type('senha123');
+      cy.get('input[name="user[email]"]').type(emailTeste);
+      cy.get('input[name="user[password]"]').type(senhaTeste);
+      cy.get('input[name="user[password_confirmation]"]').type(senhaTeste);
       
       // Marcar os perfis
       cy.get('input[name="user_profile[ids][]"][value="1"]').check(); // Administrador
@@ -103,7 +105,7 @@ describe('Funcionalidade de Gerenciar Usuários', () => {
       // Submeter o formulário
       cy.get('.actions > .btn').click();
 
-      login(emailParaUsar, 'senha123');
+      login(emailTeste, senhaTeste);
       cy.contains('Login realizado com sucesso.').should('be.visible');
     });
 
@@ -142,12 +144,12 @@ describe('Funcionalidade de Gerenciar Usuários', () => {
       cy.viewport(1280, 720);
       cy.visit('http://localhost:3000/users');
 
-      buscarNaLista(emailParaUsar, 3)
+      buscarNaLista(emailTeste, 3)
     
       // Localiza o botão "Desativar" correspondente ao usuário
       cy.get('span[title="Desativar"]').click();
     
-      buscarNaLista(emailParaUsar, 3)
+      buscarNaLista(emailTeste, 3)
     
       // Verifica se a mensagem de confirmação aparece
       cy.contains('Usuário desativado com sucesso!').should('be.visible');
