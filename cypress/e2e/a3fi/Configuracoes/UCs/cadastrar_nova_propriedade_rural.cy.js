@@ -159,42 +159,9 @@ describe('Funcionalidade de Gerenciar Usuários', () => {
     // });
 
     // it('Deve atualizar informações de um usuário', () => {
-    //   login();
-    //   // cy.viewport(1280, 720);
-    //   cy.visit('http://localhost:3000/users');
-    //   buscarNaLista('joao.silva123@exemplo.com', 3)
-
-    //   // descomente se a lista ficar colapsada e os botões escondidos
-    //   // cy.get(':nth-child(1) > .sorting_1').click()
-    
-    //   cy.get('span[title="Editar"]').click();
-
-    //   editarUsuario();
-
-    //   buscarNaLista('joao.silva123@exemplo.com', 3)
-    //   cy.contains('Usuário atualizado com sucesso!').should('be.visible');
     // });
     
     // it('Deve excluir um usuário logicamente', () => {
-    //   login();
-    //   cy.viewport(1280, 720);
-    //   cy.visit('http://localhost:3000/users');
-
-    //   buscarNaLista(emailTeste, 3)
-    
-    //   // Localiza o botão "Desativar" correspondente ao usuário
-    //   cy.get('span[title="Desativar"]').click();
-    
-    //   buscarNaLista(emailTeste, 3)
-    
-    //   // Verifica se a mensagem de confirmação aparece
-    //   cy.contains('Usuário desativado com sucesso.').should('be.visible');
-    
-    //   // Verifica se o usuário foi realmente desativado (opcional, baseado na UI da aplicação)
-    //   // cy.get('#inputSearch').clear().type('joao.silva123@exemplo.com');
-    //   // cy.wait(10000);
-      
-    //   // cy.contains('Desativado').should('be.visible');
     // });    
 
   });
