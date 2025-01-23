@@ -111,16 +111,21 @@ describe('Funcionalidade de Movimentar Animais', () => {
       });
     };
 
-    const click_text = (classe = '', reference = 'Selecione a raça') => {
+    const click_text_by_class = (classe = '', reference = 'Selecione a raça') => {
       cy.get('body').then(() => {
-        if (classe.trim() === '') {
-          cy.get(classe).contains(reference).click();
-        } else {
+        if (classe === null) {
           cy.contains(reference).click();
+        } else {
+          cy.get(classe).contains(reference).click();
         }
       });
     };
     
+    const click_text_in_element = (element, text) => {
+      cy.get('body').then(() => {
+        cy.get(element).contains(text).click();
+      });
+    };
     
     beforeEach(() => {
       Cypress.on('uncaught:exception', (err, runnable) => {
@@ -131,7 +136,7 @@ describe('Funcionalidade de Movimentar Animais', () => {
     it('Deve movimentar um animal', () => {
       cy.visit('https://teste.ati.to.gov.br/');
 
-      click_text('.item-title','SIASTEC' )
+      click_text_by_class('.item-title','SIASTEC' )
 
       cy.visit('https://teste.ati.to.gov.br/login-unico-api/auth/login');
 
@@ -140,7 +145,9 @@ describe('Funcionalidade de Movimentar Animais', () => {
 
       cy.get('#menu-button > .pi').click()
 
-      click_text('Acompanhamento CAUC')
+      click_text_by_class(null,'Acompanhamento CAUC')
+
+      click_text_in_element('span', 'Visão Geral')
     });   
 
   });
