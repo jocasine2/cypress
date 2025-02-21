@@ -1,0 +1,6 @@
+[submodule "submodules/submodules/functions"]
+	path = submodules/submodules/functions
+	url = https://github.com/jocasine2/functions.git
+[submodule "submodules/functions"]
+	path = submodules/functions
+	url = https://github.com/jocasine2/functions.git
