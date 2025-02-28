@@ -22,7 +22,7 @@
 ![alt text](img/terminal_vscode.png)
 
 # Rodar o Cypress
-No terminal do linux na pasta cypress execute os seguintes comandos:
+No terminal do VSCode na pasta cypress execute os seguintes comandos:
 
 8 - Carregue algumas funções úteis e inicie os containers.
 ```
