@@ -2,13 +2,6 @@
 
 Este repositório contém a configuração necessária para executar testes automatizados utilizando o **Cypress**, uma ferramenta robusta para testes end-to-end.
 
-## 📌 Conteúdo do Repositório
-
-- Todas as **dependências** essenciais já configuradas no `package.json`.
-- Estrutura organizada para testes, incluindo `integration`, `fixtures` e `plugins`.
-- Configurações do **Cypress** no arquivo `cypress.config.js` ou `cypress.json`.
-- Scripts no `package.json` para facilitar a execução dos testes.
-
 # Dependencias
 ## Iniciando ambiente de desenvolvimento de testes
 1 - Se estiver em ambiente Windows instale o Ubuntu como subsistema através do [WSL2](https://youtu.be/_Wp2nWtTBBY?t=109).
