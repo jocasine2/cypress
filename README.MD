@@ -49,4 +49,4 @@ cypress run
 ```
 test/cypress/e2e
 ```
-obs: Pode usar os testes do siastec como modelo
+obs: Pode usar os testes do test/cypress/e2e/siastec como modelo
