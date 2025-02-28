@@ -1,4 +1,6 @@
-![Cypress Logo](https://i0.wp.com/blog.knoldus.com/wp-content/uploads/2022/04/cypress.png?w=364&ssl=1)
+<p align="center">
+  <img src="https://i0.wp.com/blog.knoldus.com/wp-content/uploads/2022/04/cypress.png?w=364&ssl=1" alt="Cypress Logo">
+</p>
 
 # Repositório de Testes com Cypress
 
