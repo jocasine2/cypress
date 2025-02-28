@@ -29,6 +29,8 @@ No terminal do VSCode na pasta cypress execute os seguintes comandos:
 source start.sh
 ```
 
+9 - As funções carregadas habilitam os seguintes comandos:
+
 Para instalar o cypress
 ```
 cypress install
@@ -43,7 +45,7 @@ Para rodar o cypress sem interface gráfica (somnete no terminal)
 cypress run
 ```
 
-9 - A pasta onde ficam os testes separados por projeto
+10 - A pasta onde ficam os testes separados por projeto
 ```
 test/cypress/e2e
 ```
