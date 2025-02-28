@@ -1,3 +1,5 @@
+![Cypress Logo](https://i0.wp.com/blog.knoldus.com/wp-content/uploads/2022/04/cypress.png?w=364&ssl=1)
+
 # Repositório de Testes com Cypress
 
 Este repositório contém a configuração necessária para executar testes automatizados utilizando o **Cypress**, uma ferramenta robusta para testes end-to-end.
