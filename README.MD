@@ -12,7 +12,7 @@ Este repositório contém a configuração necessária para executar testes auto
 
 2 - Instale o [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/) (Windows) ou [Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04) e o [Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04) (Ubuntu).
 
-  2.2 - Se tiver problemas para rodar o Docker experimente atualizar o [windows para windows 11] (https://www.microsoft.com/pt-br/software-download/windows11) 
+    2.2 - Se tiver problemas para rodar o Docker experimente atualizar o [windows para windows 11](https://www.microsoft.com/pt-br/software-download/windows11) 
 
 3 - Através da loja do windows instale a ultima versão do Ubuntu (Windows).
 
