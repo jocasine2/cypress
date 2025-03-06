@@ -34,5 +34,12 @@ echo "NPM: $(npm -v)"
 echo "NPX: $(npx -v)"
 echo "Cypress: $(npx cypress -v)"
 
+# instalando chrome
+sudo apt update
+wget -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+chmod +r google-chrome.deb
+sudo apt install -y ./google-chrome.deb
+rm google-chrome.deb
+
 echo "Instalação concluída com sucesso!"
 
