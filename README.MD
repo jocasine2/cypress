@@ -57,6 +57,6 @@ cypress run
 
 10 - A pasta onde ficam os testes separados por projeto
 ```
-test/cypress/e2e
+cypress/e2e
 ```
 obs: Pode usar os testes do test/cypress/e2e/siastec como modelo

@@ -24,16 +24,6 @@ sudo apt update && sudo apt install -y libnss3
 sudo apt install -y libatk1.0-0t64 libatk-bridge2.0-0t64 libcups2t64 \ libxkbcommon-x11-0 libxcomposite1 libxdamage1 libgbm1 \ liboss4-salsa-asound2 libxrandr2 libgtk-3-0t64 libpango-1.0-0 libx11-xcb1
 sudo apt install -y libasound2t64
 
-npx cypress install
-npx cypress open
-
-# Verificar versões instaladas
-echo "Verificando versões instaladas..."
-echo "Node.js: $(node -v)"
-echo "NPM: $(npm -v)"
-echo "NPX: $(npx -v)"
-echo "Cypress: $(npx cypress -v)"
-
 # instalando chrome
 sudo apt update
 wget -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
