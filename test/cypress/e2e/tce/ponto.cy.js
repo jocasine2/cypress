@@ -1,5 +1,5 @@
 
-import * as utils from "../../../support/utils"
+import * as utils from "../../support/utils"
 
 describe("ponto", () => {
   it("tests ponto", () => {
@@ -14,10 +14,16 @@ describe("ponto", () => {
     // navega para a seção de ponto eletrônico
     cy.get("li:nth-of-type(2) li:nth-of-type(2) > a").click();
     cy.location("href").should("eq", "http://meta4.tceto.tc.br/servlet/CheckSecurity/JSP/cbw_m3/cjf_meu_ponto_eletronico.jsp");
+   
     // deve clicar no botão "Registrar Entrada" ou "Registrar Saída" dependendo do horário
+    // entrada
     // cy.get("#btnSaida > span").click();
-    // confirma o registro no diálogo que aparece após clicar no botão
     // cy.get("div.ui-dialog-buttonpane span").click();
+    
+    // saída
+    // cy.get("#btnEntrada > span").click();
+    // cy.get("div.ui-dialog-buttonpane span").click();
+  
   });
 });
   
