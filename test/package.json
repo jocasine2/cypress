@@ -4,5 +4,8 @@
   },
   "dependencies": {
     "20": "^1.0.0"
+  },
+  "allowScripts": {
+    "cypress@13.17.0": true
   }
 }
