@@ -16,13 +16,14 @@ describe("ponto", () => {
     cy.location("href").should("eq", "http://meta4.tceto.tc.br/servlet/CheckSecurity/JSP/cbw_m3/cjf_meu_ponto_eletronico.jsp");
    
     // deve clicar no botão "Registrar Entrada" ou "Registrar Saída" dependendo do horário
-    // entrada
-    // cy.get("#btnSaida > span").click();
-    // cy.get("div.ui-dialog-buttonpane span").click();
-    
-    // saída
+   
+    // Entrada
     // cy.get("#btnEntrada > span").click();
     // cy.get("div.ui-dialog-buttonpane span").click();
+
+    // Saída
+    cy.get("#btnSaida > span").click();
+    cy.get("div.ui-dialog-buttonpane span").click();
   
   });
 });
